@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html ng-app="app" lang="pt-br" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Gabriel Coppini">
+
+    <title>CVC - Angular</title>
+
+    <link rel="shortcut icon" href="~/favicon.ico">
+
+    @Styles.Render("~/Bundles/App/vendor/css")
+    @Styles.Render("~/Bundles/App/Main/css")
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type='text/css'>
+
+    <script type="text/javascript">
+        var ViajaNet = ViajaNet || {}; ViajaNet.appPath = '@ApplicationPath';
+    </script>
+
+    @Scripts.Render("~/Bundles/App/vendor/js")
+    @Scripts.Render("~/Bundles/App/Main/js")
+
+</head>
+<body>
+    <div class="container-fluid" ng-cloak ui-view>
+    </div>
+</body>
+</html>

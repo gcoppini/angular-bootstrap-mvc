@@ -1,0 +1,95 @@
+﻿
+<div class="row" id="home" ng-controller="app.views.home as vm">
+
+    <div class="col-sm-4">
+        <form>
+            Local de retirada<input type="text" name="localRetirada" ng-model="vm.filters.localRetirada"><br />
+            Devolver o carro em outro local<input type="checkbox" name="devolverOutroLocal" ng-model="vm.filters.devolverOutroLocal"><br />
+            Local de devolução<input type="text" name="localDevolucao" ng-model="vm.filters.localDevolucao"><br />
+            Retirada<input type="text" name="dataRetirada" ng-model="vm.filters.dataRetirada"><br />
+            Devolução<input type="text" name="dataDevolucao" ng-model="vm.filters.dataDevolucao"><br />
+            Economize até 35%
+            <input type="checkbox" name="incluirVoo" ng-model="vm.filters.incluirVoo">Incluir Vôo <input type="checkbox" name="incluirHotel" ng-model="vm.filters.incluirHotel">Incluir Hotel<br />
+            <input type="button" value="Buscar" class="btn btn-primary" ng-click="vm.Search()"><br />
+        </form>
+    </div>
+
+
+    <div class="col-sm-8">
+
+    <div class="row">
+        {{vm.filters.sort}} - {{vm.filters.order }} - {{vm.sortPredicate}} - {{vm.sortReverse}}
+    </div>
+
+    <div class="row">
+        Itens por página: 100
+        Ordenar por: Menor preço
+        Moeda: Real
+    </div>
+
+    <div class="row" ng-repeat="repo in vm.searchResults.items">
+
+        <div class="col-sm-8">
+
+            <div class="row">
+
+                <div class="col-sm-4 wrapper">
+                    <img class="img-responsive" ng-src="{{repo.ImageURL}}" alt="Avatar" />
+                </div>
+
+                <div class="col-sm-8">
+                    <p>{{repo.ShortDesc}}</p>
+                    <p>Código da taxa: {{repo.CodigoTaxa}}</p>
+                    <p>{{repo.VeiculosDesc}}</p>
+
+                    <ul>
+                        <li ng-repeat="option in repo.DescItens | limitlessFilter:3:showAll">{{option.desc}}</li>
+                    </ul>
+                    <a ng-bind="showAll && 'Fechar Detalhes' || 'Ver Detalhes'" ng-click="toggleShowAll()"></a>
+                </div>
+
+            </div>
+            <div class="row">
+                <hr>
+                <p>{{repo.LongDesc}}</p>
+                <hr>
+            </div>
+
+
+            <div class="row">
+                <table class="table table-responsive  borderless">
+                    <tr>
+                        <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdPortas}}portas</span></td>
+                        <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdPessoas}}pessoas</span></td>
+                        <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdMalas}}malas</span></td>
+                    </tr>
+
+                    <tr>
+                        <td ng-if="repo.HasArCondicionado == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Ar Condicionado</span></tdng-if="repo.HasArCondicionado>
+                        <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.TipoCambio}}</span></td>
+                        <td ng-if="repo.HasDirecaoHidraulica == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Direção Hidraulica</span></tdng-if="repo.HasDirecaoHidraulica>
+                    </tr>
+
+                    <tr>
+                        <td ng-if="repo.HasVidroEletrico == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Vidro Elétrico</span></td>
+                        <td ng-if="repo.HasMultiMidia == true"><span class="glyphicon glyphicon-star" aria-hidden="true">CD/USB</span></td>
+                        <td ng-if="repo.HasRadio == true"><span class="glyphicon glyphicon-star" aria-hidden="true">RádioAM/FM</span></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="col-sm-4">
+            <p>De: {{repo.ValorLocacaoDe}}</p>
+            <p>Por: {{repo.ValorLocacaoPor}}</p>
+            <p>Em até: {{repo.ValorQtdParcelas}} vezes</p>
+            <input type="button" value="Alugar" class="btn btn-primary" ng-click="vm.Search()"><br />
+            <p>Taxas Inclusas</p>
+        </div>
+
+    </div>
+
+    </div>
+
+</div>
