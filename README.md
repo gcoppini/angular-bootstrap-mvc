@@ -1,22 +1,13 @@
-# angular-mvc-csharp-hybrid
-Arquitetura de front-end .NET MVC C# com AngularJs acessando api do GitHub
+# angular-bootstrap-mvc
+Arquitetura de front-end .NET MVC C# com AngularJs acessando API mock(json file)
 
 # Motivação
-Este foi um teste de seleção para desenvolvedor que efetuei para ViajaNet
+Este foi um teste de seleção para desenvolvedor que efetuei para CVC
 
-# Observações
+#Observações
+- Este é um preview - Work in progress :)
+- Elaborado com: Microsoft Visual Studio Community 2015
+- Fiz o "Mock" da API com um arquivo JSON ao invés de utilizar um framework
+- Package manager: Nuget
+- Não está no formato do do GithubPages
 
-Usar:
-­ masterpage em cshtml para header e footer
-­ angularjs e javascript
-­ less/css
-­ responsividade mínima (apenas um breakpoint mobile a ser escolhido pelo candidato) 
-­ sem usar frameworks (Bootstrap, Foundation, etc)
-­ bundle para javascript e css
-­ usar organização por módulo para os diretórios
-­ pensando nos elementos da tela como componentes reutilizáveis
-
-Não usar:
-­ JQuery
-­ Bootstrap, Foundation etc
-­ Outros frameworks
