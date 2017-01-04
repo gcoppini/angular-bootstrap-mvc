@@ -23,6 +23,7 @@ namespace CVC.Produto.Web
                 new ScriptBundle("~/Bundles/App/vendor/js")
                     .Include(
                         "~/Scripts/angular.min.js",
+                        "~/Scripts/i18n/angular-locale_pt-br.js",
                         "~/Scripts/angular-animate.min.js",
                         "~/Scripts/angular-sanitize.min.js",
                         "~/Scripts/angular-aria.min.js",

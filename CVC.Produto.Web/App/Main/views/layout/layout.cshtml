@@ -20,12 +20,23 @@
         var ViajaNet = ViajaNet || {}; ViajaNet.appPath = '@ApplicationPath';
     </script>
 
+    
+
     @Scripts.Render("~/Bundles/App/vendor/js")
     @Scripts.Render("~/Bundles/App/Main/js")
+
+    <!-- Plugin files -->
+    <script src="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.js"></script>
+    <link href="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.css" type="text/css" rel="stylesheet">
+
+
+
+
 
 </head>
 <body>
     <div class="container-fluid" ng-cloak ui-view>
     </div>
 </body>
+
 </html>

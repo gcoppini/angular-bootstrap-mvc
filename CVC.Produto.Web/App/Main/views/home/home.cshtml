@@ -2,16 +2,43 @@
 <div class="row" id="home" ng-controller="app.views.home as vm">
 
     <div class="col-sm-4">
-        <form>
-            Local de retirada<input type="text" name="localRetirada" ng-model="vm.filters.localRetirada"><br />
-            Devolver o carro em outro local<input type="checkbox" name="devolverOutroLocal" ng-model="vm.filters.devolverOutroLocal"><br />
-            Local de devolução<input type="text" name="localDevolucao" ng-model="vm.filters.localDevolucao"><br />
-            Retirada<input type="text" name="dataRetirada" ng-model="vm.filters.dataRetirada"><br />
-            Devolução<input type="text" name="dataDevolucao" ng-model="vm.filters.dataDevolucao"><br />
-            Economize até 35%
-            <input type="checkbox" name="incluirVoo" ng-model="vm.filters.incluirVoo">Incluir Vôo <input type="checkbox" name="incluirHotel" ng-model="vm.filters.incluirHotel">Incluir Hotel<br />
-            <input type="button" value="Buscar" class="btn btn-primary" ng-click="vm.Search()"><br />
-        </form>
+        <div class="well">
+            <form>
+                Local de retirada<input type="text" name="localRetirada" ng-model="vm.filters.localRetirada"><br />
+                Devolver o carro em outro local<input type="checkbox" name="devolverOutroLocal" ng-model="vm.filters.devolverOutroLocal"><br />
+                Local de devolução<input type="text" name="localDevolucao" ng-model="vm.filters.localDevolucao"><br />
+
+                Retirada <datetimepicker ng-model="vm.filters.dataRetirada"
+                                date-format="dd/MM/yyyy"
+                                date-options="dateOptions"
+                                date-disabled="isDisabledDate(date, mode)"
+                                clear-text="Limpar"
+                                close-text="Fechar"
+                                current-text="Hoje"
+                                show-meridian="false"
+                                show-spinner="false">
+                </datetimepicker><br />
+
+                Devolução <datetimepicker ng-model="vm.filters.dataDevolucao"
+                                date-format="dd/MM/yyyy"
+                                date-options="dateOptions"
+                                date-disabled="isDisabledDate(date, mode)"
+                                clear-text="Limpar"
+                                close-text="Fechar"
+                                current-text="Hoje"
+                                show-meridian="false"
+                                show-spinner="false">
+                </datetimepicker><br />
+                
+                Economize até 35%
+                <input type="checkbox" name="incluirVoo" ng-model="vm.filters.incluirVoo">Incluir Vôo <input type="checkbox" name="incluirHotel" ng-model="vm.filters.incluirHotel">Incluir Hotel<br />
+                <input type="button" value="Buscar" class="btn btn-primary" ng-click="vm.Search()" tooltip="Buscar"><br />
+
+
+
+    
+            </form>
+        </div>
     </div>
 
 

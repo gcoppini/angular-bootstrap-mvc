@@ -77,6 +77,12 @@
             }
         });
 
+
+        //Datas
+        $scope.$watch("date", function (date) {
+            // read date value
+        }, true);
+
         
     }
     ]);
