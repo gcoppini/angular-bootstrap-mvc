@@ -1,8 +1,8 @@
 ﻿
 <div class="row" id="home" ng-controller="app.views.home as vm">
 
-    <div class="col-sm-4">
-        <div class="well">
+    <div class="col-lg-3 col-md-5 col-sm-3 col-xs-3">
+        <div class="well searchFilterBox">
             <form>
                 Local de retirada<input type="text" name="localRetirada" ng-model="vm.filters.localRetirada"><br />
                 Devolver o carro em outro local<input type="checkbox" name="devolverOutroLocal" ng-model="vm.filters.devolverOutroLocal"><br />
@@ -42,7 +42,7 @@
     </div>
 
 
-    <div class="col-sm-8">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 
     <div class="row">
         {{vm.filters.sort}} - {{vm.filters.order }} - {{vm.sortPredicate}} - {{vm.sortReverse}}
@@ -76,13 +76,13 @@
                 </div>
 
             </div>
+
             <div class="row">
                 <hr>
                 <p>{{repo.LongDesc}}</p>
                 <hr>
             </div>
-
-
+            
             <div class="row">
                 <table class="table table-responsive  borderless">
                     <tr>
@@ -107,12 +107,12 @@
 
         </div>
 
-        <div class="col-sm-4">
-            <p>De: {{repo.ValorLocacaoDe}}</p>
-            <p>Por: {{repo.ValorLocacaoPor}}</p>
-            <p>Em até: {{repo.ValorQtdParcelas}} vezes</p>
-            <input type="button" value="Alugar" class="btn btn-primary" ng-click="vm.Search()"><br />
-            <p>Taxas Inclusas</p>
+        <div class="col-sm-4 well rentNowBox">
+                <p>De: {{repo.ValorLocacaoDe}}</p>
+                <p>Por: {{repo.ValorLocacaoPor}}</p>
+                <p>Em até: {{repo.ValorQtdParcelas}} vezes</p>
+                <input type="button" value="Alugar" class="btn btn-primary" ng-click="vm.Search()"><br />
+                <p>Taxas Inclusas</p>
         </div>
 
     </div>
