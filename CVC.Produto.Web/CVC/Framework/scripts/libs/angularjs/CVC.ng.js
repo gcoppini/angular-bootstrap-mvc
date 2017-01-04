@@ -1,12 +1,12 @@
-﻿(function (ViajaNet, angular) {
+﻿(function (CVC, angular) {
 
     if (!angular) {
         return;
     }
 
-    ViajaNet.ng = ViajaNet.ng || {};
+    CVC.ng = CVC.ng || {};
 
-    ViajaNet.ng.http = {
+    CVC.ng.http = {
         defaultError: {
             message: 'An error has occurred!',
             details: 'Error detail not sent by server.'
@@ -28,42 +28,42 @@
         },
 
         logError: function (error) {
-            ViajaNet.log.error(error);
+            CVC.log.error(error);
         },
 
         showError: function (error) {
             if (error.details) {
-                return ViajaNet.message.error(error.details, error.message || ViajaNet.ng.http.defaultError.message);
+                return CVC.message.error(error.details, error.message || CVC.ng.http.defaultError.message);
             } else {
-                return ViajaNet.message.error(error.message || ViajaNet.ng.http.defaultError.message);
+                return CVC.message.error(error.message || CVC.ng.http.defaultError.message);
             }
         },
 
         handleTargetUrl: function (targetUrl) {
             if (!targetUrl) {
-                location.href = ViajaNet.appPath;
+                location.href = CVC.appPath;
             } else {
                 location.href = targetUrl;
             }
         },
 
-        handleNonViajaNetErrorResponse: function (response, defer) {
+        handleNonCVCErrorResponse: function (response, defer) {
             if (response.config.vjnHandleError !== false) {
                 switch (response.status) {
                     case 401:
-                        ViajaNet.ng.http.handleUnAuthorizedRequest(
-                            ViajaNet.ng.http.showError(ViajaNet.ng.http.defaultError401),
-                            ViajaNet.appPath
+                        CVC.ng.http.handleUnAuthorizedRequest(
+                            CVC.ng.http.showError(CVC.ng.http.defaultError401),
+                            CVC.appPath
                         );
                         break;
                     case 403:
-                        ViajaNet.ng.http.showError(ViajaNet.ajax.defaultError403);
+                        CVC.ng.http.showError(CVC.ajax.defaultError403);
                         break;
                     case 404:
-                        ViajaNet.ng.http.showError(ViajaNet.ajax.defaultError404);
+                        CVC.ng.http.showError(CVC.ajax.defaultError404);
                         break;
                     default:
-                        ViajaNet.ng.http.showError(ViajaNet.ng.http.defaultError);
+                        CVC.ng.http.showError(CVC.ng.http.defaultError);
                         break;
                 }
             }
@@ -74,10 +74,10 @@
         handleUnAuthorizedRequest: function (messagePromise, targetUrl) {
             if (messagePromise) {
                 messagePromise.done(function () {
-                    ViajaNet.ng.http.handleTargetUrl(targetUrl || ViajaNet.appPath);
+                    CVC.ng.http.handleTargetUrl(targetUrl || CVC.appPath);
                 });
             } else {
-                ViajaNet.ng.http.handleTargetUrl(targetUrl || ViajaNet.appPath);
+                CVC.ng.http.handleTargetUrl(targetUrl || CVC.appPath);
             }
         },
 
@@ -89,26 +89,26 @@
                 defer.resolve(response);
 
                 if (originalData.targetUrl) {
-                    ViajaNet.ng.http.handleTargetUrl(originalData.targetUrl);
+                    CVC.ng.http.handleTargetUrl(originalData.targetUrl);
                 }
             } else if (originalData.success === false) {
                 var messagePromise = null;
 
                 if (originalData.error) {
                     if (response.config.vjnHandleError !== false) {
-                        messagePromise = ViajaNet.ng.http.showError(originalData.error);
+                        messagePromise = CVC.ng.http.showError(originalData.error);
                     }
                 } else {
                     originalData.error = defaultError;
                 }
 
-                ViajaNet.ng.http.logError(originalData.error);
+                CVC.ng.http.logError(originalData.error);
 
                 response.data = originalData.error;
                 defer.reject(response);
 
                 if (response.status == 401 && response.config.vjnHandleError !== false) {
-                    ViajaNet.ng.http.handleUnAuthorizedRequest(messagePromise, originalData.targetUrl);
+                    CVC.ng.http.handleUnAuthorizedRequest(messagePromise, originalData.targetUrl);
                 }
             } else { //not wrapped result
                 defer.resolve(response);
@@ -116,7 +116,7 @@
         }
     }
 
-    var viajaNetModule = angular.module('ViajaNet', []);
+    var viajaNetModule = angular.module('CVC', []);
 
     viajaNetModule.config([
         '$httpProvider', function ($httpProvider) {
@@ -126,7 +126,7 @@
 
                     'request': function (config) {
                         if (endsWith(config.url, '.cshtml')) {
-                            config.url = ViajaNet.appPath + 'ViajaNetAppView/Load?viewUrl=' + config.url;
+                            config.url = CVC.appPath + 'CVCAppView/Load?viewUrl=' + config.url;
                         }
 
                         return config;
@@ -138,7 +138,7 @@
                         }
 
                         var defer = $q.defer();
-                        ViajaNet.ng.http.handleResponse(response, defer);
+                        CVC.ng.http.handleResponse(response, defer);
                         return defer.promise;
                     },
 
@@ -146,9 +146,9 @@
                         var defer = $q.defer();
 
                         if (!ngError.data) {
-                            ViajaNet.ng.http.handleNonViajaNetErrorResponse(ngError, defer);
+                            CVC.ng.http.handleNonCVCErrorResponse(ngError, defer);
                         } else {
-                            ViajaNet.ng.http.handleResponse(ngError, defer);
+                            CVC.ng.http.handleResponse(ngError, defer);
                         }
 
                         return defer.promise;
@@ -167,4 +167,4 @@
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
 
-})((ViajaNet || (ViajaNet = {})), (angular || undefined));
+})((CVC || (CVC = {})), (angular || undefined));

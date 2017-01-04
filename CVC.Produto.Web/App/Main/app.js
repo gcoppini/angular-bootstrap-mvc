@@ -10,7 +10,7 @@
         'ui.router',
         'ui.utils',
 
-        'ViajaNet'
+        'CVC'
     ]);
 
     //Configuration for Angular UI routing.

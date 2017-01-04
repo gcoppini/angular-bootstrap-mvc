@@ -139,13 +139,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ViajaNetAppViewController.cs" />
+    <Compile Include="Controllers\CVCAppViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Views\ViajaNetWebViewPageBase.cs" />
+    <Compile Include="Views\CVCWebViewPageBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\Main\app.js" />
@@ -955,9 +955,9 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="ViajaNet\Framework\scripts\viajaNet.js" />
-    <Content Include="ViajaNet\Framework\scripts\libs\angularjs\viajaNet.ng.js" />
-    <Content Include="ViajaNet\Framework\styles\utils\ie10fix.css" />
+    <Content Include="CVC\Framework\scripts\CVC.js" />
+    <Content Include="CVC\Framework\scripts\libs\angularjs\CVC.ng.js" />
+    <Content Include="CVC\Framework\styles\utils\ie10fix.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\angular-ui-router.js" />

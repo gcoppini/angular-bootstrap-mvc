@@ -34,8 +34,8 @@ namespace CVC.Produto.Web
                         "~/Scripts/angular-ui/ui-utils.min.js",
                         "~/Scripts/angular-ui/ui-utils-ieshiv.min.js",
 
-                        "~/ViajaNet/Framework/scripts/viajaNet.js",
-                        "~/ViajaNet/Framework/scripts/libs/angularjs/viajaNet.ng.js"
+                        "~/CVC/Framework/scripts/CVC.js",
+                        "~/CVC/Framework/scripts/libs/angularjs/CVC.ng.js"
                     )
             );
 

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace CVC.Produto.Web.Controllers
 {
-    public class ViajaNetAppViewController : Controller
+    public class CVCAppViewController : Controller
     {
         public ActionResult Load(string viewUrl)
         {

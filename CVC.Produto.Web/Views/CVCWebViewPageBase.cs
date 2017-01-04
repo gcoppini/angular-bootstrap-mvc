@@ -2,12 +2,12 @@
 
 namespace CVC.Produto.Web.Views
 {
-    public abstract class ViajaNetWebViewPageBase : ViajaNetWebViewPageBase<dynamic>
+    public abstract class CVCWebViewPageBase : CVCWebViewPageBase<dynamic>
     {
 
     }
 
-    public abstract class ViajaNetWebViewPageBase<TModel> : WebViewPage<TModel>
+    public abstract class CVCWebViewPageBase<TModel> : WebViewPage<TModel>
     {
 
         public string ApplicationPath
@@ -16,7 +16,7 @@ namespace CVC.Produto.Web.Views
                 return Request.ApplicationPath;
             }
         }
-        protected ViajaNetWebViewPageBase()
+        protected CVCWebViewPageBase()
         {
         }
 
