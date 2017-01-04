@@ -18,6 +18,65 @@
     };
 
     
+
+    /* MESSAGE **************************************************/
+    //Defines Message API, not implements it
+
+    CVC.message = CVC.message || {};
+
+    var showMessage = function (message, title) {
+        alert((title || '') + ' ' + message);
+
+        if (!$) {
+            CVC.log.warn('CVC.message can not return promise since jQuery is not defined!');
+            return null;
+        }
+
+        return $.Deferred(function ($dfd) {
+            $dfd.resolve();
+        });
+    };
+
+    CVC.message.info = function (message, title) {
+        CVC.log.warn('CVC.message.info is not implemented!');
+        return showMessage(message, title);
+    };
+
+    CVC.message.success = function (message, title) {
+        CVC.log.warn('CVC.message.success is not implemented!');
+        return showMessage(message, title);
+    };
+
+    CVC.message.warn = function (message, title) {
+        CVC.log.warn('CVC.message.warn is not implemented!');
+        return showMessage(message, title);
+    };
+
+    CVC.message.error = function (message, title) {
+        CVC.log.warn('CVC.message.error is not implemented!');
+        return showMessage(message, title);
+    };
+
+    CVC.message.confirm = function (message, titleOrCallback, callback) {
+        CVC.log.warn('CVC.message.confirm is not implemented!');
+
+        if (titleOrCallback && !(typeof titleOrCallback == 'string')) {
+            callback = titleOrCallback;
+        }
+
+        var result = confirm(message);
+        callback && callback(result);
+
+        if (!$) {
+            CVC.log.warn('CVC.message can not return promise since jQuery is not defined!');
+            return null;
+        }
+
+        return $.Deferred(function ($dfd) {
+            $dfd.resolve();
+        });
+    };
+
     /* UTILS ***************************************************/
 
     CVC.utils = CVC.utils || {};

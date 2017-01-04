@@ -95,7 +95,7 @@
                 var messagePromise = null;
 
                 if (originalData.error) {
-                    if (response.config.vjnHandleError !== false) {
+                    if (response.config.CVCHandleError !== false) {
                         messagePromise = CVC.ng.http.showError(originalData.error);
                     }
                 } else {
