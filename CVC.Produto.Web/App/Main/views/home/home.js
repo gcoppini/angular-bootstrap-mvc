@@ -18,7 +18,9 @@
             localDevolucao: '',
             devolverOutroLocal: '',
             dataRetirada: '',
+            horaRetirada:'',
             dataDevolucao: '',
+            horaDevolucao:'',
             incluirVoo: '',
             incluirHotel: ''
         };
@@ -78,10 +80,55 @@
         });
 
 
-        //Datas
-        $scope.$watch("date", function (date) {
-            // read date value
-        }, true);
+        // date picker
+        vm.dataRetirada = {
+            date: new Date().getDate(),
+            datepickerOptions: {
+                showWeeks: false,
+                startingDay: 1,
+                
+                dateDisabled: function (data) {
+                    return (data.mode === 'day' && (new Date().toDateString() == data.date.toDateString()));
+                }
+            }
+        };
+
+        // time picker
+        vm.horaRetirada = {
+            date: new Date(),
+            timepickerOptions: {
+                readonlyInput: false,
+                showMeridian: false
+            }
+        };
+
+
+        vm.dataDevolucao = {
+            date: new Date().getDate(),
+            datepickerOptions: {
+                showWeeks: false,
+                startingDay: 1
+            }
+        };
+
+        // time picker
+        vm.horaDevolucao = {
+            date: new Date(),
+            timepickerOptions: {
+                readonlyInput: false,
+                showMeridian: false
+            }
+        };
+
+        vm.openCalendar = function (e, picker) {
+            vm[picker].open = true;
+        };
+
+
+        // destroy watcher
+        $scope.$on('$destroy', function () {
+            unwatchMinMaxValues();
+        });
 
         
     }

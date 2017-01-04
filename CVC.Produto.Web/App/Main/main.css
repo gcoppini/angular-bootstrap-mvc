@@ -20,10 +20,13 @@ img.img-responsive {
 .rentNowBox {
   background-color: #ffd800 !important;
   border: none;
-  display: table-cell;
-  max-width: 100%;
-  height: auto;
 }
 .searchFilterBox {
   background-color: #ffd800 !important;
+}
+.datetime-picker-dropdown > li.date-picker-menu div > table .btn-default {
+  border: 0;
+}
+.datetime-picker-dropdown > li.time-picker-menu div > table {
+  border: 0;
 }

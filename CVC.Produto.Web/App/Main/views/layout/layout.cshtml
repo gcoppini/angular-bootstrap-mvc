@@ -13,10 +13,8 @@
 
     @Styles.Render("~/Bundles/App/vendor/css")
     @Styles.Render("~/Bundles/App/Main/css")
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
         
-    <!-- Essa fonte não ficou boa -->
-    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-
     <script type="text/javascript">
         var CVC = CVC || {}; CVC.appPath = '@ApplicationPath';
     </script>
@@ -27,13 +25,7 @@
     @Scripts.Render("~/Bundles/App/Main/js")
 
     <!-- Plugin files -->
-    <script src="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.js"></script>
-    <link href="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.css" type="text/css" rel="stylesheet">
-
-
-
-
-
+    <script src="https://cdn.rawgit.com/Gillardo/bootstrap-ui-datetime-picker/master/dist/datetime-picker.js"></script>
 </head>
 <body>
     <div class="container-fluid" ng-cloak ui-view>

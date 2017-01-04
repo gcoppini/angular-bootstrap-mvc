@@ -1,48 +1,73 @@
 ﻿
 <div class="row" id="home" ng-controller="app.views.home as vm">
 
-    <div class="col-lg-3 col-md-5 col-sm-3 col-xs-3">
+    <div class="col-md-3">
         <div class="well searchFilterBox">
             <form>
-                Local de retirada<input type="text" name="localRetirada" ng-model="vm.filters.localRetirada"><br />
-                Devolver o carro em outro local<input type="checkbox" name="devolverOutroLocal" ng-model="vm.filters.devolverOutroLocal"><br />
-                Local de devolução<input type="text" name="localDevolucao" ng-model="vm.filters.localDevolucao"><br />
 
-                Retirada <datetimepicker ng-model="vm.filters.dataRetirada"
-                                date-format="dd/MM/yyyy"
-                                date-options="dateOptions"
-                                date-disabled="isDisabledDate(date, mode)"
-                                clear-text="Limpar"
-                                close-text="Fechar"
-                                current-text="Hoje"
-                                show-meridian="false"
-                                show-spinner="false">
-                </datetimepicker><br />
-
-                Devolução <datetimepicker ng-model="vm.filters.dataDevolucao"
-                                date-format="dd/MM/yyyy"
-                                date-options="dateOptions"
-                                date-disabled="isDisabledDate(date, mode)"
-                                clear-text="Limpar"
-                                close-text="Fechar"
-                                current-text="Hoje"
-                                show-meridian="false"
-                                show-spinner="false">
-                </datetimepicker><br />
+                <div class="form-group">
+                    <label for="localRetirada" class="control-label">Local de retirada</label>
+                    <input type="text" id="localRetirada" class="form-control input-sm" ng-model="vm.filters.localRetirada"><br />
                 
-                Economize até 35%
-                <input type="checkbox" name="incluirVoo" ng-model="vm.filters.incluirVoo">Incluir Vôo <input type="checkbox" name="incluirHotel" ng-model="vm.filters.incluirHotel">Incluir Hotel<br />
-                <input type="button" value="Buscar" class="btn btn-primary" ng-click="vm.Search()" tooltip="Buscar"><br />
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="devolverOutroLocal" ng-model="vm.filters.devolverOutroLocal">Devolver o carro em outro local</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="localDevolucao" class="control-label">Local de devolução</label>
+                    <input type="text" id="localDevolucao" class="form-control input-sm" ng-model="vm.filters.localDevolucao"><br />
+                </div>
+
+                <div class="form-group">
+                    Retirada
+                    <p class="input-group">
+                        <input type="text" class="form-control" datetime-picker="dd/MM/yyyy" ng-model="vm.dataRetirada" is-open="vm.dataRetirada.open" enable-time="false" datepicker-options="vm.dataRetirada.datepickerOptions" close-on-date-selection="false" datepicker-append-to-body="true" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar($event, 'dataRetirada')"><i class="fa fa-calendar"></i></button>
+                        </span>
+                    
+                        <input type="text" class="form-control" datetime-picker="HH:mm" ng-model="vm.horaRetirada.date" is-open="vm.horaRetirada.open" enable-date="false" timepicker-options="vm.horaRetirada.timepickerOptions" close-on-selection="true" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar($event, 'horaRetirada')"><i class="fa fa-clock-o"></i></button>
+                        </span>
+                    </p>
+
+                </div>
+
+                <div class="form-group">
+                    Devolução
+                    <p class="input-group">
+                        <input type="text" class="form-control" datetime-picker="dd/MM/yyyy" ng-model="vm.dataDevolucao" is-open="vm.dataDevolucao.open" enable-time="false" datepicker-options="vm.dataDevolucao.datepickerOptions" close-on-date-selection="false" datepicker-append-to-body="true" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar($event, 'dataDevolucao')"><i class="fa fa-calendar"></i></button>
+                        </span>
+
+                        <input type="text" class="form-control" datetime-picker="HH:mm" ng-model="vm.horaDevolucao.date" is-open="vm.horaDevolucao.open" enable-date="false" timepicker-options="vm.horaDevolucao.timepickerOptions" close-on-selection="true" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar($event, 'horaDevolucao')"><i class="fa fa-clock-o"></i></button>
+                        </span>
+                    </p>
+
+                </div>
+
+                <div class="form-group well">
+                    <p>Economize até 35%</p>
+                    <label class="checkbox-inline"><input type="checkbox" id="incluirVoo" ng-model="vm.filters.incluirVoo">Incluir Vôo</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="incluirHotel" ng-model="vm.filters.incluirHotel">Incluir Hotel</label>
 
 
+                </div>
 
-    
+                <div class="form-group">
+                    <input type="button" value="Buscar" class="btn btn-primary btn-lg btn-block" ng-click="vm.Search()" tooltip="Buscar"><br />
+                </div>
             </form>
         </div>
     </div>
 
 
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+    <div class="col-md-9">
 
     <div class="row">
         {{vm.filters.sort}} - {{vm.filters.order }} - {{vm.sortPredicate}} - {{vm.sortReverse}}
@@ -111,7 +136,7 @@
                 <p>De: {{repo.ValorLocacaoDe}}</p>
                 <p>Por: {{repo.ValorLocacaoPor}}</p>
                 <p>Em até: {{repo.ValorQtdParcelas}} vezes</p>
-                <input type="button" value="Alugar" class="btn btn-primary" ng-click="vm.Search()"><br />
+                <input type="button" value="Alugar" class="btn btn-primary btn-md btn-block" ng-click="vm.Search()"><br />
                 <p>Taxas Inclusas</p>
         </div>
 
