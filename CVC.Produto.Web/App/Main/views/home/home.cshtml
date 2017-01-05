@@ -74,12 +74,29 @@
     </div>
 
     <div class="row">
-        Itens por página: 100
-        Ordenar por: Menor preço
-        Moeda: Real
+
+
+
+        <label for="selectSortOptions">Itens por página</label>
+        <select ng-model="vm.sort.ItensQty" id="selectSortOptions">
+            <option ng-repeat="option in vm.sort.ItensQty" value="{{option.value}}">{{option.desc}}</option>
+        </select>
+
+        <label for="selectSortOptions">Ordenar por</label>
+        <select ng-model="vm.sort.OrderBy" id="selectSortOptions">
+            <option ng-repeat="option in vm.sort.OrderBy" value="{{option}}">{{option.desc}}</option>
+        </select>
+
+        <label for="selectSortOptions">Moeda</label>
+        <select ng-model="vm.sort.Currency" id="selectSortOptions">
+            <option ng-repeat="option in vm.sort.Currency" value="{{option.value}}">{{option.desc}}</option>
+        </select>
+        
+        
+        
     </div>
 
-    <div class="row" ng-repeat="repo in vm.searchResults.items">
+    <div class="row" ng-animate="'animate'" ng-repeat="repo in vm.searchResults.items | orderBy:vm.sortPredicate:vm.sortReverse">
 
         <div class="col-sm-8">
 

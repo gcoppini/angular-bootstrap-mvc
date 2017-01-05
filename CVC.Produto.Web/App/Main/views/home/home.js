@@ -25,20 +25,40 @@
             incluirHotel: ''
         };
 
-        vm.sortOptions = {
-            "items": [
-            { desc: "Best match", sort: "stars", order: "desc", predicate: '-stargazers_count', reverse: false },
+        vm.sort = {
 
-            { desc: "Most Stars", sort: "stars", order: "desc", predicate: '-stargazers_count', reverse: false },
-            { desc: "Fewest Stars", sort: "stars", order: "asc", predicate: '-stargazers_count', reverse: 'reverse' },
+            "ItensQty": [
+                { value: 10, desc: "10", },
+                { value: 20, desc: "20", },
+                { value: 30, desc: "30", },
+                { value: 40, desc: "40", },
+                { value: 50, desc: "50", }
+            ],
+            
+            "OrderBy": [
+                { desc: "Best match", sort: "stars", order: "desc", predicate: '-stargazers_count', reverse: false },
+
+                { desc: "Most Stars", sort: "stars", order: "desc", predicate: '-stargazers_count', reverse: false },
+                { desc: "Fewest Stars", sort: "stars", order: "asc", predicate: '-stargazers_count', reverse: 'reverse' },
 
 
-            { desc: "Most Forks", sort: "forks", order: "desc", predicate: '-forks_count', reverse: false },
-            { desc: "Fewest Forks", sort: "forks", order: "asc", predicate: '-forks_count', reverse: 'reverse' },
+                { desc: "Most Forks", sort: "forks", order: "desc", predicate: '-forks_count', reverse: false },
+                { desc: "Fewest Forks", sort: "forks", order: "asc", predicate: '-forks_count', reverse: 'reverse' },
 
-            { desc: "Recentley Update", sort: "updated", order: "desc", predicate: '-updated_at', reverse: false },
-            { desc: "Least Recentley Update", sort: "updated", order: "asc", predicate: '-updated_at', reverse: 'reverse' }
-            ]
+                { desc: "Recentley Update", sort: "updated", order: "desc", predicate: '-updated_at', reverse: false },
+                { desc: "Least Recentley Update", sort: "updated", order: "asc", predicate: '-updated_at', reverse: 'reverse' }
+            ],
+
+            "Currency": [
+                { value: 10, desc: "Real", },
+                { value: 20, desc: "Dólar", },
+                { value: 30, desc: "Euro", },
+                { value: 40, desc: "Libra", },
+                { value: 50, desc: "Iene", },
+                { value: 60, desc: "Peso argentino", },
+                { value: 70, desc: "Coroa Sueca", }
+            ],
+
         };
 
         vm.UpdateSearchParam = function () {
@@ -63,7 +83,7 @@
         };
 
 
-        $scope.$watch('vm.filters.selectSortOption', function (newValue, oldValue) {
+        $scope.$watch('vm.sort.OrderBy', function (newValue, oldValue) {
             if (newValue != oldValue) {
                 console.log(oldValue + ' - ' + newValue);
 

@@ -9,7 +9,6 @@
         'ui.bootstrap.datetimepicker',
         'ui.router',
         'ui.utils',
-
         'CVC'
     ]);
 
