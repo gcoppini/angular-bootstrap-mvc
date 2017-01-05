@@ -86,6 +86,92 @@
 
       "Moeda": "Real",
       "done": true
+    },
+    {
+      "Operadora": "Budget",
+      "CodigoTaxa": "IFMR",
+      "VeiculosDesc": "Chevrolet Celta, Ford Fiesta, VW Gol, Fiat Palio ou similiar",
+      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/SAND.png",
+      "ShortDesc": "Carro econômico com ar",
+      "LongDesc": "Super inclusive promocional - Km Livre, Seguro total do veículo, seguro a terceiros, taxas de serviços inclusas e 1 motorista adicional",
+      "DescItens": [
+        {
+          "desc": "Quilometragem livre"
+        },
+        {
+          "desc": "Seguro total do veículo"
+        },
+        {
+          "desc": "Seguro a terceiros"
+        },
+        {
+          "desc": "Taxas de serviços inclusa"
+        },
+        {
+          "desc": "1 motorista adicional"
+        }
+      ],
+      "QtdPortas": 4,
+      "QtdPessoas": 5,
+      "QtdMalas": 3,
+      "HasArCondicionado": true,
+      "HasVidroEletrico": false,
+      "HasDirecaoHidraulica": false,
+      "HasRadio": false,
+      "HasMultiMidia": false,
+      "TipoCambio": "Automático",
+
+
+      "ValorLocacaoDe": "938",
+      "ValorLocacaoPor": "838",
+      "ValorQtdParcelas": "10",
+      "ValorDesconto": "20%",
+
+      "Moeda": "Real",
+      "done": true
+    },
+    {
+      "Operadora": "Hertz",
+      "CodigoTaxa": "IFMR",
+      "VeiculosDesc": "Chevrolet Celta, Ford Fiesta, VW Gol, Fiat Palio ou similiar",
+      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/NUNS.png",
+      "ShortDesc": "Carro econômico com ar",
+      "LongDesc": "Super inclusive promocional - Km Livre, Seguro total do veículo, seguro a terceiros, taxas de serviços inclusas e 1 motorista adicional",
+      "DescItens": [
+        {
+          "desc": "Quilometragem livre"
+        },
+        {
+          "desc": "Seguro total do veículo"
+        },
+        {
+          "desc": "Seguro a terceiros"
+        },
+        {
+          "desc": "Taxas de serviços inclusa"
+        },
+        {
+          "desc": "1 motorista adicional"
+        }
+      ],
+      "QtdPortas": 4,
+      "QtdPessoas": 5,
+      "QtdMalas": 3,
+      "HasArCondicionado": true,
+      "HasVidroEletrico": true,
+      "HasDirecaoHidraulica": true,
+      "HasRadio": true,
+      "HasMultiMidia": true,
+      "TipoCambio": "Automático",
+
+
+      "ValorLocacaoDe": "938",
+      "ValorLocacaoPor": "838",
+      "ValorQtdParcelas": "10",
+      "ValorDesconto": "20%",
+
+      "Moeda": "Real",
+      "done": true
     }
   ]
 }

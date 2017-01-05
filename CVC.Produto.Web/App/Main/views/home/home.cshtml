@@ -107,8 +107,8 @@
                                 <img class="img-responsive" ng-src="{{repo.ImageURL}}" alt="Avatar" />
                             </div>
 
-                            <div class="col-sm-8">
-                                <p>{{repo.ShortDesc}}</p>
+                            <div class="col-sm-7">
+                                <h2>{{repo.ShortDesc}}</h2>
                                 <p>Código da taxa: {{repo.CodigoTaxa}}</p>
                                 <p>{{repo.VeiculosDesc}}</p>
 
@@ -116,6 +116,9 @@
                                     <li ng-repeat="option in repo.DescItens | limitlessFilter:3:showAll">{{option.desc}}</li>
                                 </ul>
                                 <a ng-bind="showAll && 'Fechar Detalhes' || 'Ver Detalhes'" ng-click="toggleShowAll()"></a>
+                            </div>
+                            <div class="col-sm-1">
+                                    <span class="btn-label"><i class="glyphicon glyphicon-heart" style="font-size:30px"></i></span>
                             </div>
 
                         </div>
@@ -129,21 +132,21 @@
                         <div class="row">
                             <table class="table table-responsive  borderless">
                                 <tr>
-                                    <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdPortas}}portas</span></td>
-                                    <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdPessoas}}pessoas</span></td>
-                                    <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdMalas}}malas</span></td>
+                                    <td><span class="glyphicon glyphicon-new-window" aria-hidden="true">{{repo.QtdPortas}}portas</span></td>
+                                    <td><span class="glyphicon glyphicon-user" aria-hidden="true">{{repo.QtdPessoas}}pessoas</span></td>
+                                    <td><span class="glyphicon glyphicon-briefcase" aria-hidden="true">{{repo.QtdMalas}}malas</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td ng-if="repo.HasArCondicionado == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Ar Condicionado</span></tdng-if="repo.HasArCondicionado>
-                                    <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.TipoCambio}}</span></td>
-                                    <td ng-if="repo.HasDirecaoHidraulica == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Direção Hidraulica</span></tdng-if="repo.HasDirecaoHidraulica>
+                                    <td ng-if="repo.HasArCondicionado == true"><span class="glyphicon glyphicon-cloud" aria-hidden="true">Ar Condicionado</span></tdng-if="repo.HasArCondicionado>
+                                    <td><span class="glyphicon glyphicon-repeat" aria-hidden="true">{{repo.TipoCambio}}</span></td>
+                                    <td ng-if="repo.HasDirecaoHidraulica == true"><span class="glyphicon glyphicon-road" aria-hidden="true">Direção Hidraulica</span></tdng-if="repo.HasDirecaoHidraulica>
                                 </tr>
 
                                 <tr>
-                                    <td ng-if="repo.HasVidroEletrico == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Vidro Elétrico</span></td>
-                                    <td ng-if="repo.HasMultiMidia == true"><span class="glyphicon glyphicon-star" aria-hidden="true">CD/USB</span></td>
-                                    <td ng-if="repo.HasRadio == true"><span class="glyphicon glyphicon-star" aria-hidden="true">RádioAM/FM</span></td>
+                                    <td ng-if="repo.HasVidroEletrico == true"><span class="glyphicon glyphicon-hand-down" aria-hidden="true">Vidro Elétrico</span></td>
+                                    <td ng-if="repo.HasMultiMidia == true"><span class="glyphicon glyphicon-cd" aria-hidden="true">CD/USB</span></td>
+                                    <td ng-if="repo.HasRadio == true"><span class="glyphicon glyphicon-music" aria-hidden="true">RádioAM/FM</span></td>
                                 </tr>
                             </table>
                         </div>
