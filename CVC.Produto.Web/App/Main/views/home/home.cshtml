@@ -52,7 +52,8 @@
                 </div>
 
                 <div class="form-group well">
-                    <p>Economize até 35%</p>
+                    
+                    <p class="label label-success" style="font-size: 14px">Economize até 35%</p><br/>
                     <label class="checkbox-inline"><input type="checkbox" id="incluirVoo" ng-model="vm.filters.incluirVoo">Incluir Vôo</label>
                     <label class="checkbox-inline"><input type="checkbox" name="incluirHotel" ng-model="vm.filters.incluirHotel">Incluir Hotel</label>
 
@@ -60,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="button" value="Buscar" class="btn btn-primary btn-lg btn-block" ng-click="vm.Search()" tooltip="Buscar"><br />
+                    <input type="button" value="Buscar" class="btn btn-primary btn-lg btn-block" role="button" ng-click="vm.Search()" tooltip="Buscar">
                 </div>
             </form>
         </div>
@@ -69,95 +70,94 @@
 
     <div class="col-md-9">
 
-    <div class="row">
-        {{vm.filters.sort}} - {{vm.filters.order }} - {{vm.sortPredicate}} - {{vm.sortReverse}}
-    </div>
+    <!--
+        {{vm.filters}} - {{vm.sort }}
+    //-->
 
-    <div class="row">
+        <div class="row">
 
+            <div class="col-sm-12">
+                <form class="form-inline">
 
+                    <div class="form-group">
 
-        <label for="selectSortOptions">Itens por página</label>
-        <select ng-model="vm.sort.ItensQty" id="selectSortOptions">
-            <option ng-repeat="option in vm.sort.ItensQty" value="{{option.value}}">{{option.desc}}</option>
-        </select>
+                        <label for="selectSortOptions">Itens por página</label>
+                        <select class="form-control" ng-model="vm.sort.PageSizeSelected" ng-options="o.value as o.desc for o in vm.sort.PageSizeOptions"></select>
 
-        <label for="selectSortOptions">Ordenar por</label>
-        <select ng-model="vm.sort.OrderBy" id="selectSortOptions">
-            <option ng-repeat="option in vm.sort.OrderBy" value="{{option}}">{{option.desc}}</option>
-        </select>
+                        <label for="selectSortOptions">Ordenar por</label>
+                        <select class="form-control" ng-model="vm.sort.OrderBySelected" ng-options="o as o.desc for o in vm.sort.OrderByOptions"></select>
 
-        <label for="selectSortOptions">Moeda</label>
-        <select ng-model="vm.sort.Currency" id="selectSortOptions">
-            <option ng-repeat="option in vm.sort.Currency" value="{{option.value}}">{{option.desc}}</option>
-        </select>
-        
-        
-        
-    </div>
+                        <label for="selectCurrencyOptions">Moeda</label>
+                        <select class="form-control" ng-model="vm.sort.CurrencySelected" ng-options="o.value as o.desc for o in vm.sort.CurrencyOptions"></select>
 
-    <div class="row" ng-animate="'animate'" ng-repeat="repo in vm.searchResults.items | orderBy:vm.sortPredicate:vm.sortReverse">
-
-        <div class="col-sm-8">
-
-            <div class="row">
-
-                <div class="col-sm-4 wrapper">
-                    <img class="img-responsive" ng-src="{{repo.ImageURL}}" alt="Avatar" />
-                </div>
-
-                <div class="col-sm-8">
-                    <p>{{repo.ShortDesc}}</p>
-                    <p>Código da taxa: {{repo.CodigoTaxa}}</p>
-                    <p>{{repo.VeiculosDesc}}</p>
-
-                    <ul>
-                        <li ng-repeat="option in repo.DescItens | limitlessFilter:3:showAll">{{option.desc}}</li>
-                    </ul>
-                    <a ng-bind="showAll && 'Fechar Detalhes' || 'Ver Detalhes'" ng-click="toggleShowAll()"></a>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <hr>
-                <p>{{repo.LongDesc}}</p>
-                <hr>
-            </div>
-            
-            <div class="row">
-                <table class="table table-responsive  borderless">
-                    <tr>
-                        <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdPortas}}portas</span></td>
-                        <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdPessoas}}pessoas</span></td>
-                        <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdMalas}}malas</span></td>
-                    </tr>
-
-                    <tr>
-                        <td ng-if="repo.HasArCondicionado == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Ar Condicionado</span></tdng-if="repo.HasArCondicionado>
-                        <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.TipoCambio}}</span></td>
-                        <td ng-if="repo.HasDirecaoHidraulica == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Direção Hidraulica</span></tdng-if="repo.HasDirecaoHidraulica>
-                    </tr>
-
-                    <tr>
-                        <td ng-if="repo.HasVidroEletrico == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Vidro Elétrico</span></td>
-                        <td ng-if="repo.HasMultiMidia == true"><span class="glyphicon glyphicon-star" aria-hidden="true">CD/USB</span></td>
-                        <td ng-if="repo.HasRadio == true"><span class="glyphicon glyphicon-star" aria-hidden="true">RádioAM/FM</span></td>
-                    </tr>
-                </table>
+                    </div>
+                </form>
             </div>
 
         </div>
 
-        <div class="col-sm-4 well rentNowBox">
-                <p>De: {{repo.ValorLocacaoDe}}</p>
-                <p>Por: {{repo.ValorLocacaoPor}}</p>
-                <p>Em até: {{repo.ValorQtdParcelas}} vezes</p>
-                <input type="button" value="Alugar" class="btn btn-primary btn-md btn-block" ng-click="vm.Search()"><br />
-                <p>Taxas Inclusas</p>
-        </div>
+            <div class="row item" ng-repeat="repo in vm.searchResults.items | orderBy:vm.sort.OrderBySelected.predicate:vm.sort.OrderBySelected.reverse">
 
-    </div>
+                    <div class="col-sm-8">
+
+                        <div class="row">
+
+                            <div class="col-sm-4 wrapper">
+                                <img class="img-responsive" ng-src="{{repo.ImageURL}}" alt="Avatar" />
+                            </div>
+
+                            <div class="col-sm-8">
+                                <p>{{repo.ShortDesc}}</p>
+                                <p>Código da taxa: {{repo.CodigoTaxa}}</p>
+                                <p>{{repo.VeiculosDesc}}</p>
+
+                                <ul>
+                                    <li ng-repeat="option in repo.DescItens | limitlessFilter:3:showAll">{{option.desc}}</li>
+                                </ul>
+                                <a ng-bind="showAll && 'Fechar Detalhes' || 'Ver Detalhes'" ng-click="toggleShowAll()"></a>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <hr>
+                            <p>{{repo.LongDesc}}</p>
+                            <hr>
+                        </div>
+
+                        <div class="row">
+                            <table class="table table-responsive  borderless">
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdPortas}}portas</span></td>
+                                    <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdPessoas}}pessoas</span></td>
+                                    <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.QtdMalas}}malas</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td ng-if="repo.HasArCondicionado == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Ar Condicionado</span></tdng-if="repo.HasArCondicionado>
+                                    <td><span class="glyphicon glyphicon-star" aria-hidden="true">{{repo.TipoCambio}}</span></td>
+                                    <td ng-if="repo.HasDirecaoHidraulica == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Direção Hidraulica</span></tdng-if="repo.HasDirecaoHidraulica>
+                                </tr>
+
+                                <tr>
+                                    <td ng-if="repo.HasVidroEletrico == true"><span class="glyphicon glyphicon-star" aria-hidden="true">Vidro Elétrico</span></td>
+                                    <td ng-if="repo.HasMultiMidia == true"><span class="glyphicon glyphicon-star" aria-hidden="true">CD/USB</span></td>
+                                    <td ng-if="repo.HasRadio == true"><span class="glyphicon glyphicon-star" aria-hidden="true">RádioAM/FM</span></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-4 well rentNowBox">
+                        <p>De: {{repo.ValorLocacaoDe}}</p>
+                        <p>Por: {{repo.ValorLocacaoPor}}</p>
+                        <p>Em até: {{repo.ValorQtdParcelas}} vezes</p>
+                        <input type="button" value="Alugar" class="btn btn-primary btn-md btn-block" ng-click="vm.Search()"><br />
+                        <p>Taxas Inclusas</p>
+                    </div>
+
+            </div>
 
     </div>
 

@@ -11,6 +11,7 @@
         vm.sortPredicate = null;
         vm.sortReverse = null;
         vm.filters = [];
+        vm.searchPageSize = 10;
 
 
         vm.filters = {
@@ -27,7 +28,8 @@
 
         vm.sort = {
 
-            "ItensQty": [
+            PageSizeSelected: null,
+            "PageSizeOptions": [
                 { value: 10, desc: "10", },
                 { value: 20, desc: "20", },
                 { value: 30, desc: "30", },
@@ -35,7 +37,8 @@
                 { value: 50, desc: "50", }
             ],
             
-            "OrderBy": [
+            OrderBySelected: null,
+            "OrderByOptions": [
                 { desc: "Best match", sort: "stars", order: "desc", predicate: '-stargazers_count', reverse: false },
 
                 { desc: "Most Stars", sort: "stars", order: "desc", predicate: '-stargazers_count', reverse: false },
@@ -49,17 +52,21 @@
                 { desc: "Least Recentley Update", sort: "updated", order: "asc", predicate: '-updated_at', reverse: 'reverse' }
             ],
 
-            "Currency": [
-                { value: 10, desc: "Real", },
-                { value: 20, desc: "Dólar", },
-                { value: 30, desc: "Euro", },
-                { value: 40, desc: "Libra", },
-                { value: 50, desc: "Iene", },
-                { value: 60, desc: "Peso argentino", },
-                { value: 70, desc: "Coroa Sueca", }
+            CurrencySelected:null,
+            "CurrencyOptions": [
+                { value: 10, desc: "Real" },
+                { value: 20, desc: "Dólar" },
+                { value: 30, desc: "Euro"  },
+                { value: 40, desc: "Libra" },
+                { value: 50, desc: "Iene" },
+                { value: 60, desc: "Peso argentino" },
+                { value: 70, desc: "Coroa Sueca" },
+                { value: 80, desc: "Rublo russo" }
             ],
 
         };
+
+
 
         vm.UpdateSearchParam = function () {
             vm.filters.q = (vm.filters.language != null) ? vm.filters.textSearch + ':' + vm.filters.language : vm.filters.textSearch;
@@ -98,9 +105,8 @@
                 vm.sortReverse = nv.reverse;
             }
         });
-
-
-        // date picker
+        
+        
         vm.dataRetirada = {
             date: new Date().getDate(),
             datepickerOptions: {
@@ -112,8 +118,7 @@
                 }
             }
         };
-
-        // time picker
+                
         vm.horaRetirada = {
             date: new Date(),
             timepickerOptions: {
@@ -121,8 +126,7 @@
                 showMeridian: false
             }
         };
-
-
+        
         vm.dataDevolucao = {
             date: new Date().getDate(),
             datepickerOptions: {
@@ -130,8 +134,7 @@
                 startingDay: 1
             }
         };
-
-        // time picker
+                
         vm.horaDevolucao = {
             date: new Date(),
             timepickerOptions: {
@@ -143,14 +146,12 @@
         vm.openCalendar = function (e, picker) {
             vm[picker].open = true;
         };
-
-
-        // destroy watcher
-        $scope.$on('$destroy', function () {
-            unwatchMinMaxValues();
-        });
-
         
+        // destroy watchers
+        $scope.$on('$destroy', function () {
+            vm.searchResults = [];
+        });
+                
     }
     ]);
 })();
