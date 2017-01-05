@@ -37,9 +37,9 @@
 
 
       "ValorLocacaoDe": "938",
-      "ValorLocacaoPor": "838",
+      "ValorLocacaoPor": "738",
       "ValorQtdParcelas": "10",
-      "ValorDesconto": "20%",
+      "ValorDesconto": "10%",
 
       "Moeda": "Real",
       "done": true
@@ -80,7 +80,7 @@
 
 
       "ValorLocacaoDe": "938",
-      "ValorLocacaoPor": "838",
+      "ValorLocacaoPor": "638",
       "ValorQtdParcelas": "10",
       "ValorDesconto": "20%",
 
@@ -91,7 +91,7 @@
       "Operadora": "Budget",
       "CodigoTaxa": "IFMR",
       "VeiculosDesc": "Chevrolet Celta, Ford Fiesta, VW Gol, Fiat Palio ou similiar",
-      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/SAND.png",
+      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/TORA.png",
       "ShortDesc": "Carro econômico com ar",
       "LongDesc": "Super inclusive promocional - Km Livre, Seguro total do veículo, seguro a terceiros, taxas de serviços inclusas e 1 motorista adicional",
       "DescItens": [
@@ -123,9 +123,9 @@
 
 
       "ValorLocacaoDe": "938",
-      "ValorLocacaoPor": "838",
+      "ValorLocacaoPor": "538",
       "ValorQtdParcelas": "10",
-      "ValorDesconto": "20%",
+      "ValorDesconto": "30%",
 
       "Moeda": "Real",
       "done": true
@@ -134,7 +134,7 @@
       "Operadora": "Hertz",
       "CodigoTaxa": "IFMR",
       "VeiculosDesc": "Chevrolet Celta, Ford Fiesta, VW Gol, Fiat Palio ou similiar",
-      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/NUNS.png",
+      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/FUSB.png",
       "ShortDesc": "Carro econômico com ar",
       "LongDesc": "Super inclusive promocional - Km Livre, Seguro total do veículo, seguro a terceiros, taxas de serviços inclusas e 1 motorista adicional",
       "DescItens": [
@@ -166,12 +166,142 @@
 
 
       "ValorLocacaoDe": "938",
-      "ValorLocacaoPor": "838",
+      "ValorLocacaoPor": "438",
       "ValorQtdParcelas": "10",
-      "ValorDesconto": "20%",
+      "ValorDesconto": "40%",
+
+      "Moeda": "Real",
+      "done": true
+    },
+    {
+      "Operadora": "Hertz",
+      "CodigoTaxa": "IFMR",
+      "VeiculosDesc": "Chevrolet Celta, Ford Fiesta, VW Gol, Fiat Palio ou similiar",
+      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/RENE.png",
+      "ShortDesc": "Carro econômico com ar",
+      "LongDesc": "Super inclusive promocional - Km Livre, Seguro total do veículo, seguro a terceiros, taxas de serviços inclusas e 1 motorista adicional",
+      "DescItens": [
+        {
+          "desc": "Quilometragem livre"
+        },
+        {
+          "desc": "Seguro total do veículo"
+        },
+        {
+          "desc": "Seguro a terceiros"
+        },
+        {
+          "desc": "Taxas de serviços inclusa"
+        },
+        {
+          "desc": "1 motorista adicional"
+        }
+      ],
+      "QtdPortas": 4,
+      "QtdPessoas": 5,
+      "QtdMalas": 3,
+      "HasArCondicionado": true,
+      "HasVidroEletrico": true,
+      "HasDirecaoHidraulica": true,
+      "HasRadio": true,
+      "HasMultiMidia": true,
+      "TipoCambio": "Automático",
+
+
+      "ValorLocacaoDe": "938",
+      "ValorLocacaoPor": "438",
+      "ValorQtdParcelas": "10",
+      "ValorDesconto": "40%",
+
+      "Moeda": "Real",
+      "done": true
+    },
+    {
+      "Operadora": "Hertz",
+      "CodigoTaxa": "IFMR",
+      "VeiculosDesc": "Chevrolet Celta, Ford Fiesta, VW Gol, Fiat Palio ou similiar",
+      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/RANG.png",
+      "ShortDesc": "Carro econômico com ar",
+      "LongDesc": "Super inclusive promocional - Km Livre, Seguro total do veículo, seguro a terceiros, taxas de serviços inclusas e 1 motorista adicional",
+      "DescItens": [
+        {
+          "desc": "Quilometragem livre"
+        },
+        {
+          "desc": "Seguro total do veículo"
+        },
+        {
+          "desc": "Seguro a terceiros"
+        },
+        {
+          "desc": "Taxas de serviços inclusa"
+        },
+        {
+          "desc": "1 motorista adicional"
+        }
+      ],
+      "QtdPortas": 4,
+      "QtdPessoas": 5,
+      "QtdMalas": 3,
+      "HasArCondicionado": true,
+      "HasVidroEletrico": true,
+      "HasDirecaoHidraulica": true,
+      "HasRadio": true,
+      "HasMultiMidia": true,
+      "TipoCambio": "Automático",
+
+
+      "ValorLocacaoDe": "938",
+      "ValorLocacaoPor": "438",
+      "ValorQtdParcelas": "10",
+      "ValorDesconto": "40%",
+
+      "Moeda": "Real",
+      "done": true
+    },
+    {
+      "Operadora": "Hertz",
+      "CodigoTaxa": "IFMR",
+      "VeiculosDesc": "Chevrolet Celta, Ford Fiesta, VW Gol, Fiat Palio ou similiar",
+      "ImageURL": "https://www.localiza.com/brasil-site/geral/Frota/DUCM.png",
+      "ShortDesc": "Carro econômico com ar",
+      "LongDesc": "Super inclusive promocional - Km Livre, Seguro total do veículo, seguro a terceiros, taxas de serviços inclusas e 1 motorista adicional",
+      "DescItens": [
+        {
+          "desc": "Quilometragem livre"
+        },
+        {
+          "desc": "Seguro total do veículo"
+        },
+        {
+          "desc": "Seguro a terceiros"
+        },
+        {
+          "desc": "Taxas de serviços inclusa"
+        },
+        {
+          "desc": "1 motorista adicional"
+        }
+      ],
+      "QtdPortas": 4,
+      "QtdPessoas": 5,
+      "QtdMalas": 3,
+      "HasArCondicionado": true,
+      "HasVidroEletrico": true,
+      "HasDirecaoHidraulica": true,
+      "HasRadio": true,
+      "HasMultiMidia": true,
+      "TipoCambio": "Automático",
+
+
+      "ValorLocacaoDe": "938",
+      "ValorLocacaoPor": "438",
+      "ValorQtdParcelas": "10",
+      "ValorDesconto": "40%",
 
       "Moeda": "Real",
       "done": true
     }
+
   ]
 }

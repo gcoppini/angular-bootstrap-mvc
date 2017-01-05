@@ -76,7 +76,7 @@
                 <div class="col-sm-4 col-xs-12">
                     <div class="form-group">
                         <label for="selectSortOptions">Itens por página</label>
-                        <select class="form-control" ng-model="vm.sort.PageSizeSelected" ng-options="o.value as o.desc for o in vm.sort.PageSizeOptions"></select>
+                        <select class="form-control" ng-model="vm.sort.PageSizeSelected" ng-options="o.value as o.desc for o in vm.sort.PageSizeOptions" ng-change="vm.PageSizeSelectedChanged()"></select>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@
             
         </div>
 
-        <div class="row item" ng-repeat="repo in vm.searchResults.items | orderBy:vm.sort.OrderBySelected.predicate:vm.sort.OrderBySelected.reverse">
+        <div class="row item" ng-repeat="repo in vm.pagedSearchResults | orderBy:vm.sort.OrderBySelected.predicate:vm.sort.OrderBySelected.reverse">
 
            <div class="col-sm-8">
 
@@ -161,6 +161,11 @@
                         <p>Taxas Inclusas</p>
                     </div>
 
+        </div>
+        <div class="row" ng-if="vm.totalItems > 0;">
+            <div class="col-sm-12">
+                <ul uib-pagination total-items="vm.totalItems" items-per-page="vm.numPerPage" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></ul>
+            </div>
         </div>
 
     </div>

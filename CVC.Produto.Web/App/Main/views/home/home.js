@@ -2,17 +2,27 @@
 
     var controllerId = 'app.views.home';
     angular.module('app').controller(controllerId, [
-        '$scope', '$state', 'appSession', 'app.services.cvc.rentacar.search', '$parse',
-    function ($scope, $state, appSession, rentacarSearch, $parse) {
+        '$scope', '$state', 'appSession', 'app.services.cvc.rentacar.search', '$parse','$log',
+    function ($scope, $state, appSession, rentacarSearch, $parse, $log) {
         var vm = this;
+        
+        vm.filters = [];
+        vm.sort = [];
 
-        vm.searchResults = [];
-        vm.selectSortOption = [];
         vm.sortPredicate = null;
         vm.sortReverse = null;
-        vm.filters = [];
-        vm.searchPageSize = 10;
+        
+        vm.searchResults = [];
+        vm.pagedSearchResults = []
+                
+        
 
+
+        vm.totalItems = 0;
+        vm.currentPage = 0;
+        vm.numPerPage = 3;
+        vm.maxSize = 3;
+        
 
         vm.filters = {
             localRetirada: '',
@@ -30,18 +40,18 @@
 
             PageSizeSelected: null,
             "PageSizeOptions": [
+                { value: 3, desc: "3", },
+                { value: 5, desc: "5", },
                 { value: 10, desc: "10", },
-                { value: 20, desc: "20", },
-                { value: 30, desc: "30", },
-                { value: 40, desc: "40", },
-                { value: 50, desc: "50", }
+                { value: 15, desc: "15", },
+                { value: 20, desc: "20", }
             ],
             
             OrderBySelected: null,
             "OrderByOptions": [
-                { desc: "Best match", sort: "stars", order: "desc", predicate: '-stargazers_count', reverse: false },
+                { desc: "Maior preço", sort: "stars", order: "desc", predicate: '-ValorLocacaoPor', reverse: false },
+                { desc: "Menor preço", sort: "stars", order: "desc", predicate: '-ValorLocacaoPor', reverse: true },
 
-                { desc: "Most Stars", sort: "stars", order: "desc", predicate: '-stargazers_count', reverse: false },
                 { desc: "Fewest Stars", sort: "stars", order: "asc", predicate: '-stargazers_count', reverse: 'reverse' },
 
 
@@ -66,28 +76,39 @@
 
         };
 
-
-
-        vm.UpdateSearchParam = function () {
-            vm.filters.q = (vm.filters.language != null) ? vm.filters.textSearch + ':' + vm.filters.language : vm.filters.textSearch;
-        }
-
+                
         vm.Search = function () {
-            vm.UpdateSearchParam();
+            
             console.log(vm.filters);
+
             rentacarSearch.search(vm.filters).then(function (result) {
                 vm.searchResults = result.data;
+                vm.setPage(1);
             });
+            
         };
 
-        vm.SetLanguage = function (language) {
-            vm.filters.language = language;
-            vm.Search();
-        };
+        
 
-        $scope.toggleShowAll = function () {
+        vm.toggleShowAll = function () {
             $scope.showAll = !$scope.showAll;
         };
+               
+
+
+
+        vm.setPage = function (pageNo) {
+            vm.currentPage = pageNo;
+        };
+
+        vm.pageChanged = function () {
+            $log.log('Page changed to: ' + vm.currentPage);
+        };
+
+
+        vm.PageSizeSelectedChanged = function () {
+            vm.numPerPage = vm.sort.PageSizeSelected;
+        }
 
 
         $scope.$watch('vm.sort.OrderBy', function (newValue, oldValue) {
@@ -105,10 +126,29 @@
                 vm.sortReverse = nv.reverse;
             }
         });
+         
+        $scope.$watch('vm.searchResults', function () {
+
+            if (!vm.searchResults || !vm.searchResults.items) return;
+
+            vm.totalItems = vm.searchResults.items.length;
+            
+        });
         
+        $scope.$watch('vm.currentPage + vm.numPerPage + vm.totalItems', function () {
+
+            console.log(vm.currentPage + ' - ' + vm.numPerPage + ' - ' + vm.totalItems);
+            if (!vm.searchResults || !vm.searchResults.items) return;
+            
+            var begin = ((vm.currentPage - 1) * vm.numPerPage), end = begin + vm.numPerPage;
+            vm.pagedSearchResults = vm.searchResults.items.slice(begin, end);
+            
+        });
+
+
         
         vm.dataRetirada = {
-            date: new Date().getDate(),
+            date: new Date(),
             datepickerOptions: {
                 showWeeks: false,
                 startingDay: 1,
@@ -128,7 +168,7 @@
         };
         
         vm.dataDevolucao = {
-            date: new Date().getDate(),
+            date: new Date(),
             datepickerOptions: {
                 showWeeks: false,
                 startingDay: 1
@@ -146,6 +186,7 @@
         vm.openCalendar = function (e, picker) {
             vm[picker].open = true;
         };
+
         
         // destroy watchers
         $scope.$on('$destroy', function () {
