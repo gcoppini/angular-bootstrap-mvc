@@ -41,7 +41,7 @@
       "ValorQtdParcelas": "10",
       "ValorDesconto": "10%",
 
-      "Moeda": "Real",
+      "Moeda": "Euro",
       "done": true
     },
     {
@@ -84,7 +84,7 @@
       "ValorQtdParcelas": "10",
       "ValorDesconto": "20%",
 
-      "Moeda": "Real",
+      "Moeda": "Libra",
       "done": true
     },
     {
@@ -127,7 +127,7 @@
       "ValorQtdParcelas": "10",
       "ValorDesconto": "30%",
 
-      "Moeda": "Real",
+      "Moeda": "Iene",
       "done": true
     },
     {
@@ -170,7 +170,7 @@
       "ValorQtdParcelas": "10",
       "ValorDesconto": "40%",
 
-      "Moeda": "Real",
+      "Moeda": "Peso argentino",
       "done": true
     },
     {
@@ -213,7 +213,7 @@
       "ValorQtdParcelas": "10",
       "ValorDesconto": "40%",
 
-      "Moeda": "Real",
+      "Moeda": "Dolar",
       "done": true
     },
     {
@@ -256,7 +256,7 @@
       "ValorQtdParcelas": "10",
       "ValorDesconto": "40%",
 
-      "Moeda": "Real",
+      "Moeda": "Rublo russo",
       "done": true
     },
     {
@@ -299,7 +299,7 @@
       "ValorQtdParcelas": "10",
       "ValorDesconto": "40%",
 
-      "Moeda": "Real",
+      "Moeda": "Coroa Sueca",
       "done": true
     }
 

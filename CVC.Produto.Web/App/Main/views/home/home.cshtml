@@ -90,7 +90,7 @@
                 <div class="col-sm-4 col-xs-12">
                     <div class="form-group">
                         <label for="selectCurrencyOptions">Moeda</label>
-                        <select class="form-control" ng-model="vm.sort.CurrencySelected" ng-options="o.value as o.desc for o in vm.sort.CurrencyOptions"></select>
+                        <select class="form-control" ng-model="vm.sort.CurrencySelected" ng-options="o.desc as o.desc for o in vm.sort.CurrencyOptions" ng-change="vm.CurrencySelectedChanged()"></select>
                     </div>
                 </div>
             </form>

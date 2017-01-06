@@ -2,8 +2,8 @@
 
     var controllerId = 'app.views.home';
     angular.module('app').controller(controllerId, [
-        '$scope', '$state', 'appSession', 'app.services.cvc.rentacar.search', '$parse','$log',
-    function ($scope, $state, appSession, rentacarSearch, $parse, $log) {
+        '$scope', '$state', 'appSession', 'app.services.cvc.rentacar.search', '$parse','$log','$filter',
+    function ($scope, $state, appSession, rentacarSearch, $parse, $log, $filter) {
         var vm = this;
         
         vm.filters = [];
@@ -14,9 +14,6 @@
         
         vm.searchResults = [];
         vm.pagedSearchResults = []
-                
-        
-
 
         vm.totalItems = 0;
         vm.currentPage = 0;
@@ -87,16 +84,11 @@
             });
             
         };
-
         
-
         vm.toggleShowAll = function () {
             $scope.showAll = !$scope.showAll;
         };
-               
-
-
-
+        
         vm.setPage = function (pageNo) {
             vm.currentPage = pageNo;
         };
@@ -104,12 +96,16 @@
         vm.pageChanged = function () {
             $log.log('Page changed to: ' + vm.currentPage);
         };
-
-
+        
         vm.PageSizeSelectedChanged = function () {
             vm.numPerPage = vm.sort.PageSizeSelected;
         }
 
+        vm.CurrencySelectedChanged = function () {
+            console.log(vm.sort.CurrencySelected);
+        }
+
+        
 
         $scope.$watch('vm.sort.OrderBy', function (newValue, oldValue) {
             if (newValue != oldValue) {
